@@ -6,9 +6,11 @@
 - [#335] The session expiry for the OIDC provider is now taken from the Token Response (expires_in) rather than from the id_token (exp)
 
 ## Breaking Changes
+- [#440](https://github.com/pusher/oauth2_proxy/pull/440) Switch Azure AD Graph API to Microsoft Graph API (@johejo)
 
 ## Changes since v5.0.0
 
+- [#440](https://github.com/pusher/oauth2_proxy/pull/440) Switch Azure AD Graph API to Microsoft Graph API (@johejo)
 - [#400](https://github.com/pusher/oauth2_proxy/pull/400) Add `nsswitch.conf` to Docker image to allow hosts file to work (@luketainton)
 - [#385](https://github.com/pusher/oauth2_proxy/pull/385) Use the `Authorization` header instead of `access_token` for refreshing GitHub Provider sessions (@ibuclaw)
 - [#372](https://github.com/pusher/oauth2_proxy/pull/372) Allow fallback to secondary verified email address in GitHub provider (@dmnemec)
