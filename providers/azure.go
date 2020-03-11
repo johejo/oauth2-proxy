@@ -171,22 +171,22 @@ func (p *AzureProvider) GetEmailAddress(s *sessions.SessionState) (string, error
 	req.Header = getAzureHeader(s.AccessToken)
 
 	json, err := requests.Request(req)
-
 	if err != nil {
 		return "", err
-	}
-
-	email, err = getEmailFromJSON(json)
-
-	if err == nil && email != "" {
-		return email, err
 	}
 
 	email, err = json.Get("userPrincipalName").String()
-
 	if err != nil {
 		logger.Printf("failed making request %s", err)
 		return "", err
+	}
+	if email != "" {
+		return email, nil
+	}
+
+	email, err = getEmailFromJSON(json)
+	if err == nil && email != "" {
+		return email, err
 	}
 
 	if email == "" {
